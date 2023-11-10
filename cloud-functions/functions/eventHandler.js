@@ -79,7 +79,6 @@ async function handleAssetLocationEvent(eventData) {
       await docRef.set({
         id: assetId,
         name: assetId,
-        poiId: "",
         poiIdEvent: parsedLocationValue,
         poiIdPacket: "",
         temperature: "",

@@ -23,28 +23,6 @@ exports.processEvent = async (event, context) => {
             }
         });
 
-        // function hasPacketRateKeys(jsonObj) {
-        //     // Check if it's an object and contains only two keys
-        //     if (typeof jsonObj === 'object' && Object.keys(jsonObj).length === 2) {
-        //         return ('tagId' in jsonObj && 'packetRate' in jsonObj);
-        //     }
-        //     return false;
-        // }
-        // if (hasPacketRateKeys(eventData)) {
-        //     //update packet rate in firebase
-        //     await db.runTransaction(async (transaction) => {
-        //         const assetDocRef = db.collection(DBCollection).doc(assetId);
-        //         const documentSnapshot = await transaction.get(assetDocRef);
-        //         if (documentSnapshot.exists) {
-        //             transaction.update(assetDocRef, {
-        //                 packetRate: eventData.packetRate,
-        //                 // lastModifiedTimestamp: new Date(),  // The time when this document is updated
-        //             });
-        //         }
-        //     });
-        //     return
-        // }
-
         // getting stored poiId from bridgeId 
         let poiId = null
         await db.runTransaction(async (transaction) => {
@@ -59,17 +37,12 @@ exports.processEvent = async (event, context) => {
 
 
                     const docRef = db.collection("bridge-mapping-details-all").doc(bridgeId);
-                    // const docRef2 = db.collection("bridge-mapping-details-2").doc(bridgeId);
         
                     const documentSnapshot = await transaction.get(docRef);
-                    // const documentSnapshot2 = await transaction.get(docRef2);
         
                     if (documentSnapshot.exists) {
                         poiId = documentSnapshot.data().zoneId
                     }
-                    // else if (documentSnapshot2.exists) {
-                    //     poiId = documentSnapshot2.data().zoneId
-                    // }
                     else {
                         console.error("No poi mapping found for bridgeId: " + bridgeId)
                         throw new Error("No poi mapping found for bridgeId: " + bridgeId)
@@ -91,23 +64,19 @@ exports.processEvent = async (event, context) => {
                 transaction.set(assetDocRef, {
                     id: assetId,
                     name: assetId,
-                    poiId: poiId,
                     poiIdPacket: poiId,
                     temperature: eventData.value.TEMP,
                     rssi: eventData.value.RSSI,
                     bridgeId: eventData.value.bridgeId,
-                    // packetRate: eventData.packetRate,
                     lastModifiedTimestamp: new Date(),  // The time when this document is created
                 });
             } else {
                 // document exists, always update it
                 transaction.update(assetDocRef, {
-                    poiId: poiId,
-                    poiIdPacket: poiId,
+                    poiIdPacket: poiId, // poiid/zoneid from packets
                     temperature: eventData.value.TEMP,
                     rssi: eventData.value.RSSI,
                     bridgeId: eventData.value.bridgeId,
-                    // packetRate: eventData.packetRate,
                     lastModifiedTimestamp: new Date(),  // The time when this document is updated
                 });
             };
@@ -115,34 +84,6 @@ exports.processEvent = async (event, context) => {
 
         });
 
-        // pushing to other assetId
-        // await db.runTransaction(async (transaction) => {
-        //     const assetDocRef2 = db.collection(DBCollection).doc("coffee_cup_1669671577");
-        //     const documentSnapshot2 = await transaction.get(assetDocRef2);
-
-        //     if (!documentSnapshot2.exists) {
-        //         console.log(`No document found for asset ${"coffee_cup_1669671577"}, creating new one.`);
-        //         transaction.set(assetDocRef2, {
-        //             id: assetId,
-        //             poiId: poiId,
-        //             temperature: eventData.value.TEMP,
-        //             rssi: eventData.value.RSSI,
-        //             bridgeId: eventData.value.bridgeId,
-        //             packetRate: eventData.packetRate,
-        //             lastModifiedTimestamp: new Date(),  // The time when this document is created
-        //         });
-        //     } else {
-        //         // document exists, always update it
-        //         transaction.update(assetDocRef2, {
-        //             poiId: poiId,
-        //             temperature: eventData.value.TEMP,
-        //             rssi: eventData.value.RSSI,
-        //             bridgeId: eventData.value.bridgeId,
-        //             packetRate: eventData.packetRate,
-        //             lastModifiedTimestamp: new Date(),  // The time when this document is updated
-        //         });
-        //     };
-        // });
     } catch (error) {
         console.error('Error processing event', error);
     }
