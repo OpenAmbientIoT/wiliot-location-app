@@ -1,3 +1,28 @@
+/**
+ * Asset Location Event Processor for Serverless Functions
+ * 
+ * This script is designed to be deployed as a Serverless Function. It processes
+ * incoming HTTP POST requests containing event data, primarily focusing on asset location events.
+ * The script interacts with Google Firebase Firestore to store and update asset location data.
+ * 
+ * Key Features:
+ * - Parses custom-formatted event data into JSON.
+ * - Handles asset location events by updating Firestore documents.
+ * - Validates incoming requests using a base64-encoded authorization key.
+ * 
+ * Environment Variables:
+ * - AUTH_KEY: Base64-encoded authorization key for validating incoming requests.
+ * - CLOUD_PROJECT_ID: Cloud Project ID for Firestore initialization.
+ * 
+ * Endpoints:
+ * - processEvent: HTTP endpoint for processing incoming events. Accepts only POST requests.
+ * 
+ * The script includes functions for string manipulation and JSON conversion to handle
+ * the custom format of incoming Kafka event data. It also includes error handling
+ * to manage and log issues that arise during processing.
+ */
+
+
 const admin = require("firebase-admin");
 const functions = require("@google-cloud/functions-framework");
 
