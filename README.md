@@ -4,11 +4,15 @@
 ## App Overview
 **user-view**
 The user-view is a way for users to view where their assets are. You can see the 'bubble' view, an overview of where your assets are in the facility. Also you can see the 'selected' or 'searched' view where specific assets are. Some assets are event located and others are heatmap located, showing heat where packets are received. Currently packets are an internal feature to Wiliot. These two location types have a tradeoff between speed, heatmap, and accuracy, event. Heatmap located assets are fast, but have lots of noise. Event located assets are slower, but have extremely high accuracy.
+
+
 <img alt="user-view" src="readme-assets/app-screenshots/user-view-bubble.png" height=300 style="border: 3px solid black; margin: 5px">
 <img alt="user-view" src="readme-assets/app-screenshots/user-view-selected.png" height=300 style="border: 3px solid black; margin: 5px">
 
 **admin-view**
 The admin view is where the bridges are placed on a map. They are placed with a scalable SVG. The specific bridges receive pakets and will be used to render. packets will render on each bridge and events will render on the average location (XY) for the bridges in it's zone.
+
+
 <img alt="user-view" src="readme-assets/app-screenshots/admin-view.png" height=300 style="border: 2px solid black; margin: 5px">
 
 ## Initializing the Project
