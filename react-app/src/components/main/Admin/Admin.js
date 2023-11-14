@@ -108,62 +108,6 @@ function Admin() {
     }, [uploadedImage]);
 
 
-    // useEffect(() => {
-    //     const fetchLocationDetails = async () => {
-    //         if (!selectedLocation) {
-    //             setImage(null);
-    //             setLocationAddress("");
-    //             setLocationName("");
-    //             setZoneData([]);
-    //             return;
-    //         }
-    //
-    //         const existingZoneMapping = await getZoneMappingByLocationId(selectedLocation);
-    //
-    //         if (existingZoneMapping && 'imageUrl' in existingZoneMapping) {
-    //             setImage(existingZoneMapping.imageUrl);
-    //             setUploadedImage(existingZoneMapping.imageUrl);
-    //
-    //             if (imgRef.current) {
-    //                 imgRef.current.src = existingZoneMapping.imageUrl;
-    //             }
-    //
-    //             setLocationAddress(existingZoneMapping.address || "");
-    //             setLocationName(existingZoneMapping.locationName || "");
-    //         } else {
-    //             setImage(null);
-    //             setUploadedImage(null);
-    //
-    //             if (imgRef.current) {
-    //                 imgRef.current.src = '';
-    //             }
-    //
-    //             setLocationAddress("");
-    //             setLocationName("");
-    //         }
-    //
-    //         const zoneMappingDetailsSnapshot = await getDocs(query(collection(firestore, 'zone-mapping-details'), where('locationId', '==', selectedLocation)));
-    //         const fetchedZoneData = zoneMappingDetailsSnapshot.docs.map(doc => {
-    //             const data = doc.data();
-    //             return {
-    //                 name: data.name,
-    //                 x: data.x,
-    //                 y: data.y,
-    //                 width: data.width,
-    //                 height: data.height,
-    //                 id: data.id,
-    //                 isDragged: data.isDragged,
-    //             };
-    //         });
-    //
-    //         if (fetchedZoneData.length > 0)
-    //             drawRectanglesForZones(fetchedZoneData);
-    //     };
-    //
-    //     fetchLocationDetails();
-    // }, [selectedLocation]);
-
-
     const resetDetails = () => {
         setImage(null);
         setLocationAddress("");
@@ -183,25 +127,6 @@ function Admin() {
         setLocationName(existingZoneMapping.locationName || "");
     };
 
-    // const fetchZoneMappingDetails = async () => {
-    //     const zoneMappingDetailsSnapshot = await getDocs(query(collection(firestore, 'zone-mapping-details'), where('locationId', '==', selectedLocation)));
-    //
-    //     const fetchedZoneData = zoneMappingDetailsSnapshot.docs.map(doc => {
-    //         const data = doc.data();
-    //         return {
-    //             name: data.name,
-    //             x: data.x,
-    //             y: data.y,
-    //             width: data.width,
-    //             height: data.height,
-    //             id: data.id,
-    //             isDragged: data.isDragged,
-    //         };
-    //     });
-    //
-    //     if (fetchedZoneData.length > 0)
-    //         drawRectanglesForZones(fetchedZoneData);
-    // };
 
     const fetchZoneMappingDetails = async () => {
         const zoneMappingDetailsSnapshot = await getDocs(query(collection(firestore, 'bridge-mapping-details-all')));
