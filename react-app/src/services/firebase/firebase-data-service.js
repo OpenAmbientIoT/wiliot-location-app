@@ -1,5 +1,5 @@
 import {addDoc, collection, deleteDoc, getDoc, getDocs, query, where} from '@firebase/firestore';
-import {firebaseApp, firestore} from './firebaseConfig-template';
+import {firebaseApp, firestore} from './firebaseConfig';
 import {getDownloadURL, getStorage, ref, uploadBytesResumable} from "firebase/storage";
 
 import {doc, onSnapshot, setDoc, updateDoc} from 'firebase/firestore';
