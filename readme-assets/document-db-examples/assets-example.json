@@ -1,0 +1,30 @@
+[
+  {
+    "bridgeId": "bridgeId1",
+    "id": "assetId1",
+    "isVisible": false,
+    "lastModifiedTimestamp": {
+      "_seconds": 1,
+      "_nanoseconds": 1
+    },
+    "name": "assetName1",
+    "poiIdEvent": "poiIdValueFromEvent1",
+    "poiIdPacket": "poiIdValueFrompacket1",
+    "rssi": "72",
+    "temperature": "21.5"
+  },
+  {
+    "bridgeId": "bridgeId2",
+    "id": "assetId2",
+    "isVisible": false,
+    "lastModifiedTimestamp": { 
+      "_seconds": 1,
+      "_nanoseconds": 1
+    },
+    "name": "assetNam2e",
+    "poiIdEvent": "poiIdValueFromEvent2",
+    "poiIdPacket": "poiIdValueFrompacket2",
+    "rssi": "72",
+    "temperature": "21.5"
+  }
+]
