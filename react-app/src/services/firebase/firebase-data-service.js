@@ -288,7 +288,7 @@ const arraysEqual = (arr1, arr2) => {
 };
 
 export const updateAssetIdsInWavelet = async (newAssetIds) => {
-    const waveletRef = doc(firestore, 'wavelet-dev', 'selectedAsset');
+    const waveletRef = doc(firestore, 'wavelet', 'selectedAsset');
 
     // Fetch the current assetIds from Firestore
     const waveletDoc = await getDoc(waveletRef);
