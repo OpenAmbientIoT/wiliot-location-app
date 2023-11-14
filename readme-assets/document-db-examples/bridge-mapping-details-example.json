@@ -1,0 +1,17 @@
+[
+  {
+    "locationName": "locationName",
+    "ownerId": "myOwnerId",
+    "locationId": "locationId",
+    "name": "bridgeName",
+    "zoneId": "zoneId",
+    "zoneName": "zoneName",
+    "id": "bridgeId",
+    "isDragged": true,
+    "x": 1182,
+    "y": 863,
+    "width": 41,
+    "height": 42,
+    "lastModifiedTimestamp": { "_seconds": 1, "_nanoseconds": 1 }
+  }
+]

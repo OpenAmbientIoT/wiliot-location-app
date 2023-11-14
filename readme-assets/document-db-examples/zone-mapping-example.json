@@ -1,0 +1,10 @@
+[
+  {
+    "ownerId": "myOwnerId",
+    "locationId": "locationId",
+    "locationName": "locationName",
+    "imageUrl": "urlOrPathToImage",
+    "address": "facilityAddress",
+    "lastModifiedTime": { "_seconds": 1, "_nanoseconds": 1 }
+  }
+]
