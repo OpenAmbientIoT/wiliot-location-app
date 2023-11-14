@@ -1,0 +1,79 @@
+/*.container {*/
+/*    width: 100%;*/
+/*    max-width: 600px;*/
+/*    margin: 0 auto;*/
+/*    background-color: #fff;*/
+/*    border-collapse: collapse;*/
+/*    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);*/
+/*}*/
+
+/*table {*/
+/*    width: 100%;*/
+/*    border-collapse: collapse;*/
+/*}*/
+
+/*th,*/
+/*td {*/
+/*    padding: 8px;*/
+/*    text-align: left;*/
+/*    border-bottom: 1px solid #ddd;*/
+/*}*/
+
+/*thead tr {*/
+/*    background-color: #f2f2f2;*/
+/*}*/
+
+/*tbody tr:nth-child(even) {*/
+/*    background-color: #f9f9f9;*/
+/*}*/
+
+/*button {*/
+/*    background-color: #007bff;*/
+/*    color: #fff;*/
+/*    padding: 5px 10px;*/
+/*    border: none;*/
+/*    border-radius: 3px;*/
+/*    cursor: pointer;*/
+/*    font-size: 14px;*/
+/*}*/
+
+/*.search-container {*/
+/*    border: 1px solid #ccc;*/
+/*    border-radius: 5px;*/
+/*    padding: 20px;*/
+/*    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);*/
+/*    background-color: #fff;*/
+/*    width: 300px; !* Adjust the width as needed *!*/
+/*}*/
+
+/*input[type="search"]::-webkit-search-cancel-button {*/
+/*    -webkit-appearance: none;*/
+/*    height: 14px;*/
+/*    width: 14px;*/
+/*    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2014%2014%22%3E%3Cpath%20d%3D%22M11.146%2011.146a.5.5%200%200%200%200-.708L7.707%207l3.439-3.438a.5.5%200%200%200-.708-.708L7%206.293%203.561%202.854a.5.5%200%200%200-.708.708L6.293%207l-3.44%203.439a.5.5%200%200%200%20.708.708L7%207.707l3.439%203.439a.5.5%200%200%200%20.707%200z%22%20fill%3D%22%23999%22%2F%3E%3C%2Fsvg%3E");*/
+/*    background-repeat: no-repeat;*/
+/*    background-size: 14px 14px;*/
+/*    background-position: center;*/
+/*    cursor: pointer;*/
+/*    border: none;*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*}*/
+
+/*.issue-popup-overlay {*/
+/*    position: fixed;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    right: 0;*/
+/*    bottom: 0;*/
+/*    background-color: rgba(0, 0, 0, 0.5); !* Adjust the opacity as needed *!*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    z-index: 9998;*/
+/*}*/
+
+/*.issue-popup-wrapper {*/
+/*    position: relative;*/
+/*    z-index: 9999;*/
+/*}*/

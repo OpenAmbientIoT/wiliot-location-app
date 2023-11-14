@@ -1,0 +1,25 @@
+.form-group {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.save-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.save-button:hover {
+    background-color: #0062cc;
+}
+
+.save-button:active {
+    background-color: #005cbf;
+}

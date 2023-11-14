@@ -1,0 +1,12 @@
+.header {
+    padding: 20px 350px;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    border-bottom: 1px solid #e9e9e9;
+}
+
+.sub-title {
+    font-size: 15px;
+    text-transform: capitalize;
+}
