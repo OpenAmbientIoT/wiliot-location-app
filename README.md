@@ -16,7 +16,11 @@ The admin view is where the bridges are placed on a map. They are placed with a 
 <img alt="user-view" src="readme-assets/app-screenshots/admin-view.png" height=300 style="border: 2px solid black; margin: 5px">
 
 ## Initializing the Project
+
+### Initializing the database.
 To initialize you need to upload preliminary information into the database.
+
+Database config for the front-end is found in the `react-app-src/services/firebase/` directory 
 
 Here are the following tables and how they can be initialized:
 **assets**: This doesn't need to be intialized. As information is received it will auto-populate. An example is found [here](readme-assets/document-db-examples/assets-example.json)
