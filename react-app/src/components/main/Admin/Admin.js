@@ -196,7 +196,7 @@ function Admin() {
             imageUrl: imageUrl,
             address: locationAddress,
             locationName: locationName,
-            lastModifiedTime: serverTimestamp(),
+            lastModifiedTimestamp: serverTimestamp(),
         };
 
         const zoneMappingQuery = await getDocs(query(collection(firestore, 'zone-mapping'), where('locationId', '==', selectedLocation)));
@@ -249,7 +249,7 @@ function Admin() {
                     y: zone.rect ? zone.rect.y : 30,
                     height: zone.rect ? zone.rect.height : 30,
                     width: zone.rect ? zone.rect.width : 30,
-                    lastModifiedTime: serverTimestamp(),
+                    lastModifiedTimestamp: serverTimestamp(),
                     id: zone.id,
                     isDragged: zone.isDragged,
                 };
@@ -263,7 +263,7 @@ function Admin() {
                     height: parseFloat(parseFloat(zone.rect.height).toFixed(2)) || 30,
                     width: parseFloat(parseFloat(zone.rect.width).toFixed(2)) || 30,
                     isDragged: zone.isDragged,
-                    lastModifiedTime: serverTimestamp(),
+                    lastModifiedTimestamp: serverTimestamp(),
                 });
             }
         }
