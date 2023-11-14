@@ -2,16 +2,16 @@
   {
     "locationName": "locationName",
     "ownerId": "myOwnerId",
-    "locationId": "locationId",
+    "locationId": "locationId", // to link to correct sitemap
     "name": "bridgeName",
     "zoneId": "zoneId",
     "zoneName": "zoneName",
     "id": "bridgeId",
-    "isDragged": true,
-    "x": 1182,
-    "y": 863,
-    "width": 41,
-    "height": 42,
+    "isDragged": false, // until it is on the sitemap this should be false
+    "x": 0, // these should initially be set to 0,0
+    "y": 0, // these define position on site map
+    "width": 40, // start with 40 for these, you can edit when laying over map
+    "height": 40,
     "lastModifiedTimestamp": { "_seconds": 1, "_nanoseconds": 1 }
   }
 ]
