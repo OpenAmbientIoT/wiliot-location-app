@@ -1,3 +1,35 @@
+/**
+ * Wavelet Packet Processing in Serverless Functions
+ *
+ * This script is a Serverless Function designed to process wavelet packets received through
+ * Messaging Queue. It focuses on handling and storing data related to asset tracking, 
+ * specifically by mapping tag IDs to asset IDs and managing packet data in Firestore.
+ * These documents are used to render wavelets on the UI.
+ *
+ * Key Operations:
+ * - Parses incoming Queue messages to extract wavelet packet data.
+ * - Retrieves asset IDs from a 'tag-asset-mapping' collection in Firestore based on the tag ID in the event.
+ * - Checks a configuration document ('wavelet-dev/selectedAsset') to determine if packet processing is enabled
+ *   and if the asset ID is among the selected assets for tracking.
+ * - If conditions are met, stores packet data in a subcollection under the 'selectedAsset' document, 
+ *   including bridge ID, RSSI, and a generated UUID.
+ *
+ * Environment Setup:
+ * - Requires Firebase Admin SDK for Firestore and Cloud Functions SDK.
+ * - Utilizes a service account for Firebase Admin SDK initialization.
+ * - Firestore database is initialized for data operations.
+ *
+ * Error Handling:
+ * - Includes error handling to manage issues in data retrieval or processing.
+ * - Logs errors to the console for debugging and monitoring purposes.
+ *
+ * Note:
+ * - The script assumes a specific Firestore data structure and is tailored to handle events
+ *   with specific data fields (tagId, bridgeId, RSSI).
+ * - Proper configuration of Firestore collections and document structure is crucial for the
+ *   correct operation of this function.
+ */
+
 const admin = require("firebase-admin");
 process.env.GCLOUD_PROJECT = "wiliot-asset-tracking";
 const functions = require("firebase-functions");

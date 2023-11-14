@@ -1,3 +1,32 @@
+/**
+ * Asset Event Processing in Serverless Functions
+ *
+ * This script is designed to be deployed as a Serverless Function. It processes incoming
+ * events, typically received from a Messaging Queue (AWS SNS or GCP PubSub) topic, and updates Firestore documents based on the
+ * event data. The script focuses on handling asset-related data, specifically mapping tag IDs to
+ * asset IDs and bridge IDs to points of interest (POIs).
+ *
+ * Key Operations:
+ * - Parses incoming Queue messages to extract event data.
+ * - Retrieves asset IDs from a 'tag-asset-mapping' collection in Firestore based on the tag ID in the event.
+ * - Retrieves POI IDs from a 'bridge-mapping-details-all' collection based on the bridge ID in the event.
+ * - Updates or creates documents in the 'assets' collection with the new data from the event.
+ *
+ * Error Handling:
+ * - The script includes error handling to manage issues in data retrieval or processing.
+ * - Logs errors to the console for debugging and monitoring purposes.
+ *
+ * Environment Setup:
+ * - The script requires the Firebase Admin SDK for Firestore and Cloud Functions SDK.
+ * - Firestore database is initialized for data operations.
+ *
+ * Note:
+ * - The script assumes a specific Firestore data structure and is tailored to handle events
+ *   with specific data fields (tagId, bridgeId, TEMP, RSSI).
+ * - Proper configuration of Firestore collections and document structure is crucial for the
+ *   correct operation of this function.
+ */
+
 const admin = require('firebase-admin');
 
 admin.initializeApp();
