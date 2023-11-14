@@ -28,7 +28,7 @@
  */
 
 const admin = require("firebase-admin");
-process.env.GCLOUD_PROJECT = "wiliot-asset-tracking";
+process.env.GCLOUD_PROJECT = "my-project";
 const functions = require("firebase-functions");
 const serviceAccount = require("./service-account.json");
 

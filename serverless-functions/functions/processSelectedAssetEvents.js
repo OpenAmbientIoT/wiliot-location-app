@@ -9,7 +9,7 @@
  * Key Operations:
  * - Parses incoming Queue messages to extract wavelet packet data.
  * - Retrieves asset IDs from a 'tag-asset-mapping' collection in Firestore based on the tag ID in the event.
- * - Checks a configuration document ('wavelet-dev/selectedAsset') to determine if packet processing is enabled
+ * - Checks a configuration document ('wavelet/selectedAsset') to determine if packet processing is enabled
  *   and if the asset ID is among the selected assets for tracking.
  * - If conditions are met, stores packet data in a subcollection under the 'selectedAsset' document, 
  *   including bridge ID, RSSI, and a generated UUID.
@@ -31,7 +31,7 @@
  */
 
 const admin = require("firebase-admin");
-process.env.GCLOUD_PROJECT = "wiliot-asset-tracking";
+process.env.GCLOUD_PROJECT = "my-project";
 const functions = require("firebase-functions");
 const serviceAccount = require("./service-account.json");
 const { v4: uuidv4 } = require("uuid");
@@ -62,7 +62,7 @@ exports.processWaveletPackets = async (event, context) => {
     });
 
     // Check if processPubSubMessages is true
-    const configRef = db.collection("wavelet-dev").doc("selectedAsset");
+    const configRef = db.collection("wavelet").doc("selectedAsset");
     const configSnapshot = await configRef.get();
     const configData = configSnapshot.data();
     console.log(configData);
