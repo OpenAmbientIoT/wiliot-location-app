@@ -22,13 +22,20 @@ To initialize you need to upload preliminary information into the database.
 
 Database config for the front-end is found in the `react-app-src/services/firebase/` directory 
 
-Here are the following tables and how they can be initialized:
+*Here are the following tables and how they can be initialized:*
+
 **assets**: This doesn't need to be intialized. As information is received it will auto-populate. An example is found [here](readme-assets/document-db-examples/assets-example.json)
+
 **bridge-mapping-details**: This collection needs to be initialized with the bridges that will be used in the UI. If packets aren't being used, you just need one of these to define a zone. Reference [this](readme-assets/document-db-examples/bridge-mapping-details-example.json) to see which fields are needed.
+
 **locations**: This should be initialized in the document database with the following information found [here](readme-assets/document-db-examples/locations-example.json). It stores the location and id of the location from the Wiliot platform.
+
 **tag-asset-mapping**: This is only needed for packet location. It acts as a key:value store for tagIds:assetIds. It translates packets that have a tagId to modify some asset with assetId. It can be found [here](readme-assets/document-db-examples/tag-asset-mapping-example.json)
+
 **wavelet**: For wavelets for work for packet location this is needed. It manages state of which assets to track and the packets it has received. It should be instantiated with [this](readme-assets/document-db-examples/wavelet-example.json) 
+
 **zone-mapping**: This collection contains extra information about the location. Importantly, it links a certain location with the imageURL that is displayed. It fetches this image and renders it on the UI.
+
 
 > All timestamps with seconds and nanoseconds are from `new Date()` in JS.
 
