@@ -3,7 +3,6 @@
 Utilize Wiliot tags to find assets.
 
 ## Table of Contents
-## Table of Contents
 1. [About the Project](#about-the-project)
 2. [Prerequisites](#prerequisites)
 3. [Technologies](#technologies)
