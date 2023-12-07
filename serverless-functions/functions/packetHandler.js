@@ -9,7 +9,7 @@
  * Key Operations:
  * - Parses incoming Queue messages to extract event data.
  * - Retrieves asset IDs from a 'tag-asset-mapping' collection in Firestore based on the tag ID in the event.
- * - Retrieves POI IDs from a 'bridge-mapping-details-all' collection based on the bridge ID in the event.
+ * - Retrieves POI IDs from a 'bridge-mapping-details-boutique' collection based on the bridge ID in the event.
  * - Updates or creates documents in the 'assets' collection with the new data from the event.
  *
  * Error Handling:
@@ -65,7 +65,7 @@ exports.processEvent = async (event, context) => {
                     }
 
 
-                    const docRef = db.collection("bridge-mapping-details-all").doc(bridgeId);
+                    const docRef = db.collection("bridge-mapping-details-boutique").doc(bridgeId);
         
                     const documentSnapshot = await transaction.get(docRef);
         

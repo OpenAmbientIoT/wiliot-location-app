@@ -129,7 +129,7 @@ function Admin() {
 
 
     const fetchZoneMappingDetails = async () => {
-        const zoneMappingDetailsSnapshot = await getDocs(query(collection(firestore, 'bridge-mapping-details-boutique')));
+        const zoneMappingDetailsSnapshot = await getDocs(query(collection(firestore, 'bridge-mapping-details-all')));
 
         const fetchedZoneData = zoneMappingDetailsSnapshot.docs.map(doc => {
             const data = doc.data();
@@ -213,7 +213,7 @@ function Admin() {
 
     const processZoneData = async () => {
         // Get all existing zone-mapping-details documents for the selected location
-        const zoneMappingDetailsQuery = await getDocs(query(collection(firestore, 'bridge-mapping-details-boutique')));
+        const zoneMappingDetailsQuery = await getDocs(query(collection(firestore, 'bridge-mapping-details-all')));
 
         // Create a Map to store the fetched documents keyed by name
         const existingZoneMappingDetailsMap = new Map(zoneMappingDetailsQuery.docs.map(doc => [doc.data().id, doc]));
@@ -254,10 +254,10 @@ function Admin() {
                     isDragged: zone.isDragged,
                 };
 
-                const newZoneMappingDetailsRef = doc(collection(firestore, 'bridge-mapping-details-boutique'));
+                const newZoneMappingDetailsRef = doc(collection(firestore, 'bridge-mapping-details-all'));
                 batch.set(newZoneMappingDetailsRef, newZoneMappingDetails);
             } else {
-                batch.update(doc(firestore, 'bridge-mapping-details-boutique', existingDoc.id), {
+                batch.update(doc(firestore, 'bridge-mapping-details-all', existingDoc.id), {
                     x: parseFloat(parseFloat(zone.rect.x).toFixed(2)) || 30,
                     y: parseFloat(parseFloat(zone.rect.y).toFixed(2)) || 30,
                     height: parseFloat(parseFloat(zone.rect.height).toFixed(2)) || 30,

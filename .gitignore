@@ -132,3 +132,5 @@ dist
 
 react-app/src/services/firebase/firebaseConfig-template.js
 react-app/src/services/firebase/firebaseConfig-template.js
+
+*/firebaseConfig.js
