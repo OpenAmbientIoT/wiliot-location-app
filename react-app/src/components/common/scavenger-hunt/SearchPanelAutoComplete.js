@@ -42,7 +42,7 @@ const useStyles = makeStyles(() => ({
 
 
 export const subscribeToSpecificAssetUpdates = (assetId, callback) => {
-    const assetsRef = collection(firestore, 'assets-test');
+    const assetsRef = collection(firestore, 'assets-boutique');
 
     console.error("assetId: ", assetId)
 

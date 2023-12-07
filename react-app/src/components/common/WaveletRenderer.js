@@ -27,7 +27,7 @@ const WaveletRenderer = ({zones, width, height}) => {
     // Subscribe to the selectedAsset document to get the assetIds
     // This is Firebase's way of subscribing to a collection
     useEffect(() => {
-        const selectedAssetRef = firestore.collection('wavelet').doc('selectedAsset');
+        const selectedAssetRef = firestore.collection('wavelet-boutique').doc('selectedAsset');
 
         // Array to store all unsubscribe functions for each assetId
         const unsubscribes = [];
@@ -39,7 +39,7 @@ const WaveletRenderer = ({zones, width, height}) => {
             unsubscribes.forEach(unsub => unsub());
 
             assetIds.forEach(assetId => {
-                const unsubscribe = firestore.collection('wavelet')
+                const unsubscribe = firestore.collection('wavelet-boutique')
                     .doc('selectedAsset')
                     .collection(assetId)
                     .where('rendered', '==', false)
@@ -55,7 +55,7 @@ const WaveletRenderer = ({zones, width, height}) => {
                                 } else {
                                     processedUUIDs.current.add(data.uuid);
                                     newPackets.push(data);
-                                    const packetRef = firestore.collection('wavelet')
+                                    const packetRef = firestore.collection('wavelet-boutique')
                                         .doc('selectedAsset')
                                         .collection(assetId)
                                         .doc(doc.id);

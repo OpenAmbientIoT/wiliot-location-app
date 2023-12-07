@@ -8,17 +8,17 @@ const storage = getStorage(firebaseApp);
 
 
 export const fetchLocations = async () => {
-    const locationsSnapshot = await getDocs(collection(firestore, 'locations'));
+    const locationsSnapshot = await getDocs(collection(firestore, 'locations-boutique'));
     return locationsSnapshot.docs.map((doc) => doc.data());
 };
 
 export const fetchZoneCategory = async () => {
-    const ZCSnapshot = await getDocs(collection(firestore, 'zone-category-mapping'));
+    const ZCSnapshot = await getDocs(collection(firestore, 'zone-category-mapping-boutique'));
     return ZCSnapshot.docs.map((doc) => doc.data());
 };
 
 export const fetchZones = async (locationId) => {
-    const zonesSnapshot = await getDocs(collection(firestore, 'bridge-mapping-details-all'));
+    const zonesSnapshot = await getDocs(collection(firestore, 'bridge-mapping-details-boutique'));
     const data = zonesSnapshot.docs
         .map((doc) => doc.data())
         .filter((zone) => zone.locationId === locationId);
@@ -26,7 +26,7 @@ export const fetchZones = async (locationId) => {
 };
 
 export const fetchZonesFromZoneMappingDetails = async (locationId) => {
-    const zonesSnapshot = await getDocs(collection(firestore, 'zone-mapping-details'));
+    const zonesSnapshot = await getDocs(collection(firestore, 'zone-mapping-details-boutique'));
     const data = zonesSnapshot.docs
         .map((doc) => doc.data())
         .filter((zone) => zone.locationId === locationId && zone.zoneId !== '' && zone.zoneId !== null);
@@ -34,18 +34,18 @@ export const fetchZonesFromZoneMappingDetails = async (locationId) => {
 };
 
 export const fetchAssets = async () => {
-    const assetsSnapshot = await getDocs(collection(firestore, 'assets'));
+    const assetsSnapshot = await getDocs(collection(firestore, 'assets-boutique'));
     return assetsSnapshot.docs.map((doc) => doc.data());
 };
 
 export const fetchCategories = async () => {
-    const categoriesSnapshot = await getDocs(collection(firestore, 'categories'));
+    const categoriesSnapshot = await getDocs(collection(firestore, 'categories-boutique'));
     return categoriesSnapshot.docs.map((doc) => doc.data());
 };
 
 
 export const getZoneMappingByLocationId = async (locationId) => {
-    const zoneMappingSnapshot = await getDocs(query(collection(firestore, 'zone-mapping'), where('locationId', '==', locationId)));
+    const zoneMappingSnapshot = await getDocs(query(collection(firestore, 'zone-mapping-boutique'), where('locationId', '==', locationId)));
     if (!zoneMappingSnapshot.empty) {
         const [zoneMappingDoc] = zoneMappingSnapshot.docs;
         return {id: zoneMappingDoc.id, ...zoneMappingDoc.data()};
@@ -227,13 +227,13 @@ export const setBucketSize = async (bucketSize) => {
 
 
 export const fetchTestAssets = async () => {
-    const assetsSnapshot = await getDocs(collection(firestore, 'assets'));
+    const assetsSnapshot = await getDocs(collection(firestore, 'assets-boutique'));
     return assetsSnapshot.docs.map((doc) => doc.data());
 };
 
 
 export const subscribeToAssetsChanges = (callback) => {
-    const assetsCollectionRef = collection(firestore, 'assets');
+    const assetsCollectionRef = collection(firestore, 'assets-boutique');
     const unsubscribe = onSnapshot(assetsCollectionRef, snapshot => {
         const fetchedAssets = snapshot.docs.map((doc) => doc.data());
         callback(fetchedAssets);
@@ -245,7 +245,7 @@ export const subscribeToAssetsChanges = (callback) => {
 
 
 export const deleteBridgeMappingDetails = async () => {
-    const bridgeMappingCollection = collection(firestore, 'bridge-mapping-details-all');
+    const bridgeMappingCollection = collection(firestore, 'bridge-mapping-details-boutique');
 
     // Query to get all docs excluding ones with locationName = FTW2
     const q = query(bridgeMappingCollection, where("locationName", "!=", "FTW2"));

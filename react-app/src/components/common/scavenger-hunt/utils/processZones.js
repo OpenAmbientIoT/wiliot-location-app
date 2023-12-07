@@ -21,8 +21,8 @@ export const processZones = (zone, renderedZones, mapping, dockDoorGroups, width
                 rect: {
                     x: averageCoordinates.x - 40,
                     y: averageCoordinates.y - 5,
-                    width: zone.rect.width,
-                    height: zone.rect.height
+                    width: zone.rect?.width,
+                    height: zone.rect?.height
                 },
             },
             width,
@@ -41,8 +41,8 @@ export const processZones = (zone, renderedZones, mapping, dockDoorGroups, width
                 rect: {
                     x: refBridge.x,
                     y: refBridge.y,
-                    width: zone.rect.width,
-                    height: zone.rect.height
+                    width: zone.rect?.width,
+                    height: zone.rect?.height
                 }
             },
             width,
