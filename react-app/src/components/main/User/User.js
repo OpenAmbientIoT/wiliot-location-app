@@ -162,7 +162,7 @@ function UserView() {
                 setLocationName("");
             }
 
-            const zoneMappingDetailsSnapshot = await getDocs(query(collection(firestore, 'bridge-mapping-details-all')));
+            const zoneMappingDetailsSnapshot = await getDocs(query(collection(firestore, 'bridge-mapping-details-boutique')));
             const fetchedZoneData = zoneMappingDetailsSnapshot.docs.map(doc => {
                 const data = doc.data();
                 return {

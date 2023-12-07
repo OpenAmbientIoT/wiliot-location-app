@@ -17,7 +17,7 @@ const ActivityPin = ({x, y}) => {
              }}
         >
             <circle
-                cx="20" cy="20" r="100"
+                cx="20" cy="20" r="200"
                 fill="none"
                 stroke="blue"
                 strokeWidth="2"

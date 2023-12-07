@@ -4,7 +4,7 @@ import React from "react";
 const ZonePinSVG = ({zone, width, height, assetCount}) => {
     const centerX = zone.rect.x + (zone.rect.width / 2) + 40;
     const centerY = zone.rect.y + (zone.rect.height / 2);
-    const radius = '60'//Math.min(zone.rect.width, zone.rect.height) / 2 * 4.2;
+    const radius = '100'//Math.min(zone.rect.width, zone.rect.height) / 2 * 4.2;
 
     const fillColor = "#00b185";
 

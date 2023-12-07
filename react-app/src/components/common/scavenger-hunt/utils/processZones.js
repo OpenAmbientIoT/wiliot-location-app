@@ -4,6 +4,7 @@ export const processZones = (zone, renderedZones, mapping, dockDoorGroups, width
     const refBridge = mapping.zoneRefBridge[zone.zoneId];
     const dockDoorGroup = getDockDoorGroupForZone(zone, dockDoorGroups);
     let zoneProps;
+    console.log(zone)
 
     if (renderedZones.has(zone.zoneId)) {
         return null; // Skip rendering for this zone
@@ -41,8 +42,8 @@ export const processZones = (zone, renderedZones, mapping, dockDoorGroups, width
                 rect: {
                     x: refBridge.x,
                     y: refBridge.y,
-                    width: zone.rect.width,
-                    height: zone.rect.height
+                    width: zone.rect?.width,
+                    height: zone.rect?.height
                 }
             },
             width,
