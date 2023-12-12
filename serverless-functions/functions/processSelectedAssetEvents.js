@@ -50,7 +50,7 @@ exports.processWaveletPackets = async (event, context) => {
     // Getting stored assetId from tagId
     let assetId = null;
     await db.runTransaction(async (transaction) => {
-      const docRef = db.collection("tag-asset-mapping").doc(eventData.tagId);
+      const docRef = db.collection("tag-asset-mapping-boutique").doc(eventData.tagId);
       const documentSnapshot = await transaction.get(docRef);
 
       if (documentSnapshot.exists) {
@@ -62,7 +62,7 @@ exports.processWaveletPackets = async (event, context) => {
     });
 
     // Check if processPubSubMessages is true
-    const configRef = db.collection("wavelet").doc("selectedAsset");
+    const configRef = db.collection("wavelet-boutique").doc("selectedAsset");
     const configSnapshot = await configRef.get();
     const configData = configSnapshot.data();
     console.log(configData);

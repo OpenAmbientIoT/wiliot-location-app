@@ -205,7 +205,7 @@ function Admin() {
             await addDoc(collection(firestore, 'zone-mapping-boutique'), newZoneMapping);
         } else {
             const docToUpdate = zoneMappingQuery.docs[0];
-            await updateDoc(doc(firestore, 'zone-mapping', docToUpdate.id), newZoneMapping);
+            await updateDoc(doc(firestore, 'zone-mapping-boutique', docToUpdate.id), newZoneMapping);
         }
         alert('Zone mapping data saved successfully!');
     }

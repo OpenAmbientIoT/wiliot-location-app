@@ -2,11 +2,13 @@ import extractZoneName from "./utils/ZoneNameExtractor";
 import React from "react";
 
 const ZonePinSVG = ({zone, width, height, assetCount}) => {
-    const centerX = zone.rect.x + (zone.rect.width / 2) + 40;
+    const centerX = zone.rect.x + (zone.rect.width / 2);
     const centerY = zone.rect.y + (zone.rect.height / 2);
-    const radius = '60'//Math.min(zone.rect.width, zone.rect.height) / 2 * 4.2;
+    const radius = '100'//Math.min(zone.rect.width, zone.rect.height) / 2 * 4.2;
 
-    const fillColor = "#00b185";
+    const textColor = "blue";
+
+    const fillColor = "grey";
 
     return (
         <svg width={width} height={height} style={{position: 'absolute', top: 0, left: 0, pointerEvents: 'none'}}>
@@ -22,8 +24,8 @@ const ZonePinSVG = ({zone, width, height, assetCount}) => {
             <text
                 x={centerX}
                 y={centerY - 25}
-                fill="white"
-                fontSize="13"
+                fill={textColor}
+                fontSize="20"
                 fontWeight="500"
                 textAnchor="middle"
                 alignmentBaseline="middle"
@@ -35,8 +37,8 @@ const ZonePinSVG = ({zone, width, height, assetCount}) => {
             <text
                 x={centerX}
                 y={centerY}
-                fill="white"
-                fontSize="20"
+                fill={textColor}
+                fontSize="30"
                 fontWeight="500"
                 textAnchor="middle"
                 alignmentBaseline="middle"
@@ -47,8 +49,8 @@ const ZonePinSVG = ({zone, width, height, assetCount}) => {
             <text
                 x={centerX}
                 y={centerY + 25}
-                fill="white"
-                fontSize="20"
+                fill={textColor}
+                fontSize="30"
                 fontWeight="500"
                 textAnchor="middle"
                 alignmentBaseline="middle"

@@ -44,7 +44,7 @@ exports.manageWaveletPackets = functions.firestore
     const newValue = change.after.data();
     const previousValue = change.before.data();
 
-    const configRef = db.collection("wavelet").doc("selectedAsset");
+    const configRef = db.collection("wavelet-boutique").doc("selectedAsset");
 
     console.log("Previous Value:", previousValue);
     console.log("New Value:", newValue);
@@ -58,7 +58,7 @@ exports.manageWaveletPackets = functions.firestore
 
       // getting all collection ids
       const collections = await db
-        .collection("wavelet")
+        .collection("wavelet-boutique")
         .doc("selectedAsset")
         .listCollections();
       const collectionIds = collections.map((collection) => collection.id);
@@ -67,7 +67,7 @@ exports.manageWaveletPackets = functions.firestore
         const batch = admin.firestore().batch();
         // Delete the documents in the packets collection
         const packetsCollectionRef = db
-          .collection("wavelet")
+          .collection("wavelet-boutique")
           .doc("selectedAsset")
           .collection(collectionId);
         const snapshots = await packetsCollectionRef.get();
@@ -103,7 +103,7 @@ exports.manageWaveletPackets = functions.firestore
 
         // Delete the documents in the packets collection
         const packetsCollectionRef = db
-          .collection("wavelet")
+          .collection("wavelet-boutique")
           .doc("selectedAsset")
           .collection(removedAssetId);
         const snapshots = await packetsCollectionRef.get();

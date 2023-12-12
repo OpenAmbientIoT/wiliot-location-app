@@ -31,7 +31,7 @@ const admin = require('firebase-admin');
 
 admin.initializeApp();
 const db = admin.firestore();
-const DBCollection = 'assets';
+const DBCollection = 'assets-boutique';
 
 exports.processEvent = async (event, context) => {
     try {
@@ -41,7 +41,7 @@ exports.processEvent = async (event, context) => {
         // getting stored assetId from tagId
         let assetId = null
         await db.runTransaction( async (transaction) => {
-            const docRef = db.collection("tag-asset-mapping").doc(eventData.tagId);
+            const docRef = db.collection("tag-asset-mapping-boutique").doc(eventData.tagId);
             const documentSnapshot = await transaction.get(docRef);
 
             if (documentSnapshot.exists) {

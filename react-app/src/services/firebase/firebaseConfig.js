@@ -4,15 +4,7 @@ import 'firebase/compat/firestore';
 import 'firebase/compat/auth';
 import 'firebase/compat/database';
 
-const firebaseConfig = {
-    apiKey: "AIzaSyA1isKvGVxXcLsK78VoH324XvcuJnUPz7A",
-    authDomain: "wiliot-asset-tracking.firebaseapp.com",
-    databaseURL: "https://wiliot-asset-tracking-default-rtdb.firebaseio.com",
-    projectId: "wiliot-asset-tracking",
-    storageBucket: "wiliot-asset-tracking.appspot.com",
-    messagingSenderId: "549531966324",
-    appId: "1:549531966324:web:d3e21c5290cdf6cf3daa21"
-  };
+const firebaseConfig = {};
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 
